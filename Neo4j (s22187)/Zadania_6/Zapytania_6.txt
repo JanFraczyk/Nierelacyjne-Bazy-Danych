@@ -1,0 +1,26 @@
+Zad. 1.:
+MATCH shortest = shortestPath((start:town{name: "Darjeeling"})-[*]-(end:peak { name:"Sandakphu" }))RETURN shortest, length(shortest)
+
+Zad. 2.:
+MATCH shortestPath = shortestPath ((start:town{name: "Darjeeling"})-[*]-(end:peak { name:"Sandakphu" })) WHERE ALL(shortestPath in relationships(shortestPath) WHERE shortestPath.winter = "true") RETURN shortestPath
+
+Zad. 3.: brak wyników
+MATCH (start:town {name:"Darjeeling"}), (end)
+MATCH p=(start)-[r:twowheeler*2..5]->(end) RETURN p
+
+Zad. 4.:
+MATCH (a:Airport)<-[o:ORIGIN]-(f:Flight) return a, count(o) as occ order by occ DESC
+
+Zad. 5.: 
+
+Zad. 6.: 
+
+Zad. 7.: 
+
+Zad. 8.:
+
+Zad. 9.:
+MATCH p=(start:Airport)<-[:ORIGIN]-(f:Flight)-[:DESTINATION]->(end:Airport)
+return start, count(distinct end)
+
+Zad. 10.:
